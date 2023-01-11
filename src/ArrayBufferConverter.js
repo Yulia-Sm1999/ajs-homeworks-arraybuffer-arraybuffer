@@ -1,18 +1,14 @@
 import getBuffer from './getBuffer';
 
 export default class ArrayBufferConverter {
-  constructor(data) {
-    this.string = this.toString(data);
-  }
-
   load(buffer) {
     const bufferToParse = getBuffer(buffer);
-    return bufferToParse;
+    this.string = bufferToParse;
   }
 
-  toString(data) {
+  toString() {
     const arrToString = [];
-    const buffer = this.load(data);
+    const buffer = this.string;
     for (let i = 0; i < buffer.length; i += 1) {
       arrToString.push(String.fromCharCode(buffer[i]));
     }
